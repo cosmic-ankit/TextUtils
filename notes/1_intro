@@ -1,0 +1,50 @@
+<!-- ******************* React Concepts ******************** -->
+
+<!-- 
+  * React is used to make a single page application that loads only once. It is created and maintained by facebook. Its a library not a framework.
+
+  * It is based on component which is a process of breaking a web application in smaller parts. We can use a single componet 
+    multiple times. So it follows the Write once use everywhere principle.
+
+  * "npx create-react-app  app-name" is a package thatr set up the basic react application. We can directly include react and use it as well but it is more optimal to use 'npx create-react-app'.
+
+  * Npm is used to install packages in node js. We can install react through it as well. But through "npx" we can use react without downloading it.
+
+  * To see components used in a web page -> Inspect -> Component.
+
+  * To create react app in same folder (not in sub folder) use "npx create-react-app ." (Use . instead of the name of sub folder).
+
+  * Rendering => In JavaScript, rendering refers to the process of displaying content on a web page or a user interface. It involves converting the code and data into a visual representation that users can see and interact with.
+
+  * DOM -> Document Object Module, its iike a tree structure
+
+
+  ******************************** React Folders **************************
+
+  * Node module -> It contains all the modules that is required to run the React app.
+
+  * Git ignore -> This folder contains all the info that what to upload on git and what not to.
+
+  * package .json -> It contains all the packages that modules in "node module " require. If whenever we want to replicate node module then package.json and package.lock will be used. 
+
+  * Package lock json -> It contains the tree structure of package.json.
+
+  * ReadMe -> It conains basix ReadMe for github
+
+  * SRC -> It contains all the componets and we will send props in those components where the state of it is present.
+  Props(Input that we have given)     State(Content inside the component)
+
+  * Public -> Index.html ==> Its where all the rendering will happen and with the help of JS the div having #root id will be populated.
+
+  * Src -> App.js ==> Its a component where the code will be wriiten.
+
+  *Src -> Index.js ==> It contains the code which render the app.js and bring the code inside it in a #root div in index.html. Every change that will take place in app.js will be displayed in index.html with the help of index.JS .
+
+  * "npm start" to run the react app
+
+
+
+
+
+
+ -->

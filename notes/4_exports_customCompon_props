@@ -1,0 +1,186 @@
+************ Exports *******************
+
+* Lets discuss the javascript concept of named export and default export. We can export one variable, array, or object etc from one module to another. With the help of exports.
+
+* There are two types of export 1) default export 2) named export
+
+1) Default export = In default export we set a parameter that we have to pass and the other module will recieve it. We dont have to write its name to recieve, we can write any name and it will take the default parameter value. We can pass only one default parameter.
+
+2) Named export = In named export we set a parameter that we have to pass and we recieve it by writing its name in other module.
+
+* to do the export the file should be of .mjs type.
+
+
+
+
+************ Module1.mjs ********************************
+let a = 100;
+let b = "Ankit";
+let c = 99.100;
+let d = [10,20, 3];
+
+
+export default b;
+export {a};
+export {c};
+export {d};
+
+************ Module2.mjs ********************************
+
+import dx , {a,c,d} from './module1.mjs' 
+
+// To import we use '/' and to run we use node .\module2.mjs
+
+// dx will take default value
+
+
+// named expoert will be in curly bracket and will be exported using name
+
+
+
+console.log(dx);
+console.log(a);
+console.log(c);
+console.log(d);
+
+
+
+
+
+*************** CUSTOM COMPONENT ****************************
+
+* Components should be made in the src folder.
+* Shortcut for component snippet is rfc-> react function based component
+* Component folder name should be start in capital letter
+* Using component keeps the code clean and less complex.
+
+
+*************** PROPS ****************************
+
+* Props are arguments passed into React components.
+* They can be variable, array, object, string etc.
+
+* Write (props) in the argument of a function where u wanna recieve props.
+* To send the props write in app.js Snippet:-
+</component propname = >
+* To use props write name.prope in the component where u wanna use props.
+
+* If there are alot of peops then we send them in a object and use there values.
+
+********** PROPS TYPE ****************
+
+* PropTypes exports a range of validators that can be used to make sure the data you receive is valid. In this example, we’re using PropTypes.string. It will accept only string as an argument, we can give other aeguments like number, array, objects etc as well and if the given argument wont satisfy the parameter it will throw error
+
+* We can use different types of proptypes like nmber, string, array, objects etc.
+
+* To use proptype we have to import it. The shortcut is "impt" -> import proptype from proptype then snippet
+component.propTypes = {prop : its type}
+
+* PropType.string.isRequired -> it is a type of proptype which makes compulsary to pass it, if we  dont pass it will show error in console
+ 
+*************** DEFAULT PROP *****************
+
+* We can also set props by default. And these default prop will be gone defaultly if we dont overwrite it.
+
+* Snippet Component.defaultProps = {props : its default value}
+
+
+
+
+**************** NAVBAR.JS ****************
+
+import React from 'react'
+import PropTypes from 'prop-types' // First we have to import proptypes to use them
+
+
+export default function Navbar(props) {
+  return (
+    <div>
+      
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+  <a className="navbar-brand" href="\">{props.text}</a> 
+  {/* write them in a curly bracket */}
+  <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span className="navbar-toggler-icon"></span>
+  </button>
+
+  <div className="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul className="navbar-nav mr-auto">
+      <li className="nav-item active">
+        <a className="nav-link" href="\">{props.home} <span className="sr-only">(current)</span></a>
+      </li>
+      <li className="nav-item">
+        <a className="nav-link" href="\">{props.link}</a>
+      </li>
+      <li className="nav-item dropdown">
+        <a className="nav-link dropdown-toggle" href="\" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {props.about}          {/* Adding props here */}
+        </a>
+        <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a className="dropdown-item" href="\">Action</a>
+          <a className="dropdown-item" href="\">Another action</a>
+          <div className="dropdown-divider"></div>
+          <a className="dropdown-item" href="\">Something else here</a>
+        </div>
+      </li>
+      
+    </ul>
+    <form className="form-inline my-2 my-lg-0">
+      <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
+      <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+
+
+    </div>
+  )
+}
+
+
+
+Navbar.propTypes = {
+    text : PropTypes.string,
+    about : PropTypes.string, // It will accept only string as an argument, we can give other aeguments like number, array, objects etc as well and if the given argument wont satisfy the parameter it will throw error
+    link: PropTypes.string.isRequired, // Now it is compulsary to pass it, if we  dont pass it will show error in console
+}
+
+
+ This prop will be gone defaultly if we dont overwrite it
+Navbar.defaultProps = 
+{
+    home : "Homeeeeee",
+    link: "linnnnnnkkkk",
+
+}
+
+*********************** APP.JS ********************************
+
+ import logo from './logo.svg';
+import './App.css';
+import Navbar from './Components/Navbar';  // This will automatically imported once we write navbar in jsx
+
+
+
+
+function App() {
+  return (
+   
+<div>
+      
+
+
+<Navbar text="TextUtils" about = "AboutLikh rha"   />  {/* To import component we use this syntax = <navbar/> */}
+
+</div>
+
+
+    
+  );
+}
+
+export default App;
+
+
+

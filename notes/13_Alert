@@ -1,0 +1,319 @@
+// ***** Notes*********
+
+/*
+
+* So what we are doing here is we wre setting an alert . So we have created an alert component and have passed it in app.js. Initially the value of alert is null and we aare using
+            props.alert && <div>
+in alert.js, that means alert.js will only get executed when it will have some value. If it is null then it wont get executed and the component wont be shown
+
+* Now we want to show alert whenever a function is executed, so we have made a function that takes the value of msg and type. 
+
+* We have passed the showAlert function in textforms as a prop and as any function is executed we update the value of msg and type accotrding to it and the value dont remain null anymore, hance the alert is displayed. 
+
+* We have also set up the settime out function, so that the value of alert become null again and it dont get display after 1.8 sec.
+
+* There are many types of alert in bootstrap with different colors yellow-warning red-danger green-succes etc. So we are also updating the color of these alerts according to the function
+
+* We have also made the capitalization function to show the alert msg first letter in capital 
+
+*/ 
+
+// ***************Alert.js************
+
+import React from 'react'
+
+function Alert(props) {
+
+    
+    
+    const capitalize = (word) => {
+        const lower = word.toLowerCase();
+        return lower.charAt(0).toUpperCase() + lower.slice(1);
+      };
+    
+    return (
+  
+    props.alert && <div>
+
+<div className={`alert alert-${props.alert.typeOfAlert} alert-dismissible fade show`} role="alert">
+
+  <strong>{capitalize(props.alert.typeOfAlert)}</strong> : {props.alert.msg}
+        
+</div>
+
+      
+    </div>
+  )
+}
+
+// export default Alert
+
+
+// ****************** App.js ********************************
+// import logo from './logo.svg';
+import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import AboutUs from './Components/AboutUs';
+import Navbar from './Components/Navbar';  // This will automatically imported once we write navbar in jsx
+import Textform from './Components/Textform';
+import Alert from './Components/Alert';
+
+import { useState } from 'react'; 
+
+
+
+
+
+
+
+
+function App() {
+  
+  
+  const[mode,SetMode]= useState("light"); // Setting up mode here with the help of useState
+  const[alert,SetAlert] = useState(null);
+
+  const showAlert = (message, type) => {
+    SetAlert({
+      msg:message,
+      typeOfAlert:type
+
+    })
+
+    setTimeout(()=>{
+      SetAlert(null); 
+    },1700)
+  }
+
+
+  
+
+  
+
+  const toggleMode =()=>{
+    if(mode==="light")
+    {
+      SetMode("dark");
+      document.body.style.backgroundColor="black"; // To change the background color of body elements
+      showAlert("Dark Mode is enabled", "success")
+      
+    }
+    else {
+      SetMode("light");
+      document.body.style.backgroundColor="white";
+      showAlert("Light Mode is enabled", "success")
+    }
+  }
+
+  // Now here we are declaring a function here that we will pass through props
+ 
+
+
+
+  return (
+    
+<div>
+      
+
+
+<Navbar title="TextUtils" about = "Options" mode={ mode } toggleMode ={toggleMode}  />  {/* To import component we use this syntax = <navbar/> */}
+{/* Here we are also passing the function so that we can use that function over navbar */}
+
+<Alert alert={alert}/>
+
+<div className="container  my-3" > 
+       {/* ".container" is a claass which automatically put the content inside it in centre  */}
+       {/* my-3 is a bootstrap class that give margin y = 3 etc */}
+      
+
+<Textform heading = "Write the text below" mode = {mode} showAlert={showAlert}/>
+
+{/* <AboutUs/> */}
+
+
+</div>
+  
+</div>
+
+
+    
+  );
+}
+
+// export default App;
+
+
+
+
+// ********************** TextForm.js ********************
+
+import React, { useState } from "react";
+import PropTypes from "prop-types";
+
+export default function Textform(props) {
+  const [text, setText] = useState("Input Text"); 
+
+  const Uppercase = ()=> {
+
+    console.log(" Converting the text into uppercase");
+
+    let upText = text.toUpperCase(); // Converting to text into upperText and storing into new variable
+    
+    setText(upText); // Setting that variable to text and text will set the value in text area
+    {props.showAlert("Text is converted to Upper Case", "success")};
+
+
+  }
+
+
+  // adding event in the argument, event that happen
+  const ChangingText = (event)=> 
+  {
+    console.log("Changing text");
+    setText(event.target.value); // This will add the written text ahead of already present value
+
+  }
+
+  const Lowercase = ()=> // Converting to LowerCase
+  {
+    console.log("Lowercase");
+    let newText = text.toLowerCase();
+    setText(newText);
+    {props.showAlert("Text is converted to Lower Case", "success")};
+  }
+  
+  const Clear = ()=> {
+
+    setText("");
+
+  }
+
+
+  // Creating a map for Morse Code
+  const morseCodeMapping = {
+    A: ".-",
+    B: "-...",
+    C: "-.-.",
+    D: "-..",
+    E: ".",
+    F: "..-.",
+    G: "--.",
+    H: "....",
+    I: "..",
+    J: ".---",
+    K: "-.-",
+    L: ".-..",
+    M: "--",
+    N: "-.",
+    O: "---",
+    P: ".--.",
+    Q: "--.-",
+    R: ".-.",
+    S: "...",
+    T: "-",
+    U: "..-",
+    V: "...-",
+    W: ".--",
+    X: "-..-",
+    Y: "-.--",
+    Z: "--..",
+    ',':" ",
+    '.':" ",
+    
+
+  };
+  
+  const MorseCode = ()=>{
+
+    let textToConvert = text.toUpperCase();
+    let MorseCodeText = "";
+    
+    for (let i = 0; i < textToConvert.length; i++) {
+      let character = textToConvert[i];
+
+      
+      if(character == " ") 
+      {
+        MorseCodeText += " ";
+      }
+      else if (morseCodeMapping.hasOwnProperty(character)) 
+      {
+        MorseCodeText += morseCodeMapping[character] + " "; 
+      }
+      else 
+      {
+        MorseCodeText = " Invalid character ";
+        {props.showAlert("Please type the valid characters", "danger")};
+
+        break;
+      }
+      
+    }
+
+    setText(MorseCodeText);
+    if(MorseCodeText != " Invalid character ") {
+      
+      {props.showAlert("Text is converted to Morse Case", "success")};
+    }
+
+    
+
+  }
+  
+
+
+
+  return (
+    <div>
+      {/* Adding form from bootstrap. Class-> ClassName, for-> htmlFor*/}
+      <div className=  "container mb-3" style= {{color: props.mode==="dark"?"white":"black"}}>
+        {/* So here we are changing the color of texts of this container according the mode */}
+        {/* Here we are chaning the color of the elements in the container according the mode */}
+        <label htmlFor="myText" className="form-label">
+          <h1>{props.heading}</h1>
+          {/* taking heading as props */}
+        </label>
+
+        <textarea
+          className="form-control"
+          value={text}
+          id="myText" // Id should be written in label
+          rows="7" // We can change the size of textarea through rows
+          onChange={ChangingText} // On change is an event that will be executed
+          style = {{backgroundColor: props.mode==="light" ? "white" : "#cbced3", border: "2px solid black", color: props.mode==="dark"?"#4c4646":"black"}}
+          // Here we are changing the background color of the textarea by using props
+        ></textarea>
+
+        
+        <button type="button" className="btn btn-primary my-3 mx-1" onClick={Uppercase}> Change to Uppercase</button>
+        <button type="button" className="btn btn-primary my-3 mx-1" onClick={Lowercase}> Change to Lowercase</button>
+        {/* Creating a lowercase button here. Mx is used to set the margin in x axis */}
+        <button type="button" className="btn btn-primary my-3 mx-1" onClick={MorseCode}> Convert to Morse Code</button>
+        <button type="button" className="btn btn-primary my-3 mx-1" onClick={Clear}> Clear</button>
+      
+
+        {/* Adding onClick event */}
+
+        <h2>Your Text Summary</h2>
+        <p>
+          <strong>{text.length}</strong> Characters and <strong>{text.split(" ").length}</strong> Words
+          {/* Text Length gives the length of texts ie charcters. Text.split returns an array which have words in its indexes. Its .length function will give no of words */}
+        </p>
+        <p>
+          <strong>{0.007 * text.split(" ").length}</strong> Minutes read
+          {/* It takes 0.007 minute to read one word */}
+        </p>
+
+        <h2>Preview</h2>
+        <p>{text.length>0 ? text : "Write something to preview here"}</p> 
+        {/* Prewing the text here */}
+
+
+        <div className="container"></div>
+
+      </div>
+
+    </div>
+  );
+}

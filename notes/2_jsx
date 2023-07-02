@@ -1,0 +1,81 @@
+<!-- ****************** APP.Js  ****************** -->
+
+function App() {
+  return (
+   
+<div>
+      <h1 className="head1"> Hisenberg </h1>
+
+      <nav>
+        <li>{name} </li> 
+        {/* Using Js in above line by using curly bracket . Js can be imported in jsx through brcakets*/}
+        <li>Contact </li>
+        <li>4th li</li>
+        <li>Okay </li>
+      </nav>
+
+      <div className="2div">
+
+        <h1>{name}</h1>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla aperiam at provident nobis magni temporibus amet earum dolorum sit, fuga architecto. Natus vero voluptates aut dolore expedita est voluptatem, error sed quas quae voluptas laborum, nisi, facere velit ex magnam. Iusto ex distinctio animi optio sapiente ea quisquam? Modi, id.
+      </div>
+
+      {/* In jsx we have to close every tag even image, anchor etc else it will throw error */}
+      <a href=""></a> 
+
+      <img src="" alt=""> </img>
+
+      {/* jsx is compiled by babble in javascript and then it got executed in div of index.html */}
+  
+</div>
+
+
+/*
+
+* Use Ctrl+ Shift + r  === To reload the page.
+
+* Now react have two kind of components class based components and functions based components. Nowadays function based components are in trend because they are easy to understand less complex. That's why react also shifted from class to function based components.
+
+
+* JSX - Javascript Syntax Extension is what we written in the           funstion APP () { return(JSX) }. It is much like HTML with some changes like 
+  for-> htmlFor 
+  tab-> tabIndex 
+  class-> className
+
+* We can also write JS in JSX by using curly brackets {}.
+
+* In react while using JSX we can return only one tag, like div by default. We can include other tags into it or we can also use JSX fragments which is " <>   </>". 
+
+* We can also open the react app in our phone from the ip address given to us if phone and laptop are connected over same wifi
+
+* In react we return jsx by using paranteses  return( JSX ) because JS automatically add semicolon in each line. To avoid it we use ().
+
+
+
+
+
+
+
+<!-- ************ App.css ***************** -->
+
+.head1 {
+    color: red;
+    width:34px;
+  
+  }
+  
+  nav{
+    width: 60px, auto;
+    border:4px solid black;
+    background-color: yellow;
+  }
+  li {
+    display:inline-block;
+    margin: 20px 70px;
+    width:auto,auto;
+    border:2px solid blue;
+    padding: 20px 20px;
+    background-color: #61dafb;
+   
+  }
+  

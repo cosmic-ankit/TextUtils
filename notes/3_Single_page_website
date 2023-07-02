@@ -1,0 +1,120 @@
+<!-- ********************** index.html ******************** -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+   
+
+    <!-- adding bootstrap css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>React App</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    
+
+<!-- adding bootstrap js -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+    <!-- Adding navbar from bootstrap -->
+
+
+  
+  </body>
+</html>
+
+
+******************* App.js ************************
+
+// import logo from './logo.svg';
+import './App.css';
+
+
+
+
+function App() {
+  return (
+   
+<div>
+      
+<nav className="navbar navbar-expand-lg navbar-light bg-light">
+  <a className="navbar-brand" href="\">Navbar</a>
+  <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span className="navbar-toggler-icon"></span>
+  </button>
+
+  <div className="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul className="navbar-nav mr-auto">
+      <li className="nav-item active">
+        <a className="nav-link" href="\">Home <span className="sr-only">(current)</span></a>
+      </li>
+      <li className="nav-item">
+        <a className="nav-link" href="\">Link</a>
+      </li>
+      <li className="nav-item dropdown">
+        <a className="nav-link dropdown-toggle" href="\" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown
+        </a>
+        <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a className="dropdown-item" href="\">Action</a>
+          <a className="dropdown-item" href="\">Another action</a>
+          <div className="dropdown-divider"></div>
+          <a className="dropdown-item" href="\">Something else here</a>
+        </div>
+      </li>
+      
+    </ul>
+    <form className="form-inline my-2 my-lg-0">
+      <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
+      <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+</div>
+
+
+    
+  );
+}
+
+export default App;
+
+/*
+
+<!-- ************ Multi Page Application ****************** -->
+
+<!-- * In multi page applications, the client send request to the server "cwh.com" and server send html css and javascript in response. This process repeats with every new page.
+
+* In single page application all of the html, css amd javascript is send by the server in once and then javascript takes over and display content on the basis of click.
+
+Ex:- A website which have three page home about contact and all three page have same navbar, so we have to write the code of navbar for all the three pages but in single page we have only one page that is index.html and we can render other pages through the javascript
+2) In react we have everything is divided into small components that we can use again and again
+
+* It reduces the server load, save bandwidth and client data.
+
+* Whenever we share our react app or upload it on git we dont share node module because it can be generated again with the help of package.json and package-lock.json. With the help of commands " npm install " and " npm i ".
+
+* Bootstrap is a css framework that also gives responsive components. We can include bootstarp by adding its link of css and js.
+
+
+*/  -->
+
+
+<!-- App.css is cleared b because we have added bootstrap -->

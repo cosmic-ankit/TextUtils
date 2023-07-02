@@ -1,0 +1,8 @@
+************** title *************
+
+* So here we are chnaging the title of the application to textutils and its content to for better seo and we will use our favicon instead of the default one of react
+
+* We use iso file for favicon. 
+
+* We will also change the title of the application according to the mode by using document.title, tho its of no use here but it can be use in apps like fb and email to show the notifications and no of unread emails in totle
+
