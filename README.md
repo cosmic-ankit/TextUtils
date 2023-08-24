@@ -33,7 +33,7 @@ To get started with TextUtils on your local machine, follow these steps:
 1. **Clone the Repository:** Start by cloning this repository to your local machine:
 
     ```bash
-    git clone https://github.com/your-username/textutils-app.git
+    git clone https://github.com/your-username/https://github.com/cosmic-ankit/TextUtils/tree/main
     ```
 
 2. **Navigate to the Directory:** Move into the project directory:
@@ -70,7 +70,7 @@ To get started with TextUtils on your local machine, follow these steps:
 
 ## Contributing
 
-Contributions are welcome! If you have suggestions, bug fixes, or improvements, feel free to open an issue or submit a pull request on the [GitHub repository](https://github.com/your-username/textutils-app).
+Contributions are welcome! If you have suggestions, bug fixes, or improvements, feel free to open an issue or submit a pull request on the [GitHub repository](https://github.com/cosmic-ankit/TextUtils/tree/main).
 
 Enhance your text manipulation experience with TextUtils, now with a sleek dark mode! For any questions or support, contact me at `cosmicankit3848@gmail.com`.
 
