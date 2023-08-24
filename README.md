@@ -1,9 +1,8 @@
 # TextUtils App
 
-![App Logo](https://github.com/cosmic-ankit/TextUtils/blob/main/Screenshot%20(577).png)
-
-
 Welcome to TextUtils, a ReactJS-based text manipulation application with a built-in dark mode! TextUtils allows you to perform various operations on your text, making it easier to analyze, modify, and work with textual content, all while enjoying a comfortable dark mode.
+
+![App Logo](https://github.com/cosmic-ankit/TextUtils/blob/main/Screenshot%20(577).png)
 
 ## Features
 
